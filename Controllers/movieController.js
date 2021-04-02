@@ -33,14 +33,24 @@ exports.addMovie = async(req, res)=>{
 
 exports.deleteMovie = async(req, res)=>{
     res.header("Content-Type", "application/json");
-    // try{
-        
-    // }catch{
+    try{
+        const result = await Movie.deleteOne({_id: req.body.id});
+        res.status(200)
+        res.send(result);
+    }catch{
+        res.status(500);
+        git.send({message: "Cannot delete the movie"});
+    }
+    
+}
 
-    // }
-    console.log(req.body.id);
-    const result = await Movie.deleteOne({_id: req.body.id});
-res.send(result);
+exports.updateMovie = async(req, res)=>{
+    res.header("Content-Type", "application/json");
+    var updatedMovie = {title: req.body.title, image: req.body.image, genres: req.body.genres,
+        description: req.body.description, length: req.body.length, director: req.body.director};
+    const result = await Movie.findOneAndUpdate({_id: req.body._id},updatedMovie);
+    res.send(result);
+
 }
 
 exports.deleteAll = async(req, res)=>{
