@@ -6,7 +6,7 @@ movieController = require('../Controllers/movieController')
 
 route.get('/movies', movieController.getMovies)
 route.post('/movies', movieController.addMovie)
-
+route.delete('/movies', movieController.deleteMovie)
 
 route.delete('/movies', movieController.deleteAll)
 

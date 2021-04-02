@@ -31,6 +31,18 @@ exports.addMovie = async(req, res)=>{
     
 }
 
+exports.deleteMovie = async(req, res)=>{
+    res.header("Content-Type", "application/json");
+    // try{
+        
+    // }catch{
+
+    // }
+    console.log(req.body.id);
+    const result = await Movie.deleteOne({_id: req.body.id});
+res.send(result);
+}
+
 exports.deleteAll = async(req, res)=>{
     res.header("Content-Type", "application/json");
     try{
