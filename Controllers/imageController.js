@@ -15,25 +15,29 @@ exports.uploadImage = async(req, res)=>{
       const file = req.files.image;
       // console.log(file);
       
-      file.mv(`${__dirname}/uploads/${file.name}`, err=>{
+      file.mv(`${__dirname}/../uploads/${file.name}`, err=>{
         if(err){
           console.error(err);
           return res.status(500).send(err);
         }
-  
-        const imagePath = path.join(__dirname,'/uploads',`/${file.name}`);
-        console.log(imagePath);
-  
-      cloudinary.uploader.upload(imagePath,
-        function(err, result){
-          if(err){
-            return res.send(err);
-          }
-          console.log('File uploaded to Cloudinary')
-  
-          res.json(result.url);
+        
+        if(`../uploads/${file.name}`){
+            const imagePath = path.join(__dirname,'/../uploads',`/${file.name}`);
+            console.log(imagePath);
+      
+          cloudinary.uploader.upload(imagePath,
+            function(err, result){
+              if(err){
+                return res.send(err);
+              }
+              console.log('File uploaded to Cloudinary')
+      
+              res.json(result.url);
+            }
+          )
         }
-      )
+        
+        
       
     })
 }

@@ -11,9 +11,6 @@ exports.getMovies = async(req, res)=>{
         res.status(500)
         res.send({message: "Cannot get the movie list"})
     }
-    // var movieList = await Movie.find({})
-    // res.status(200)
-    // res.send(movieList)
 }
 
 exports.addMovie = async(req, res)=>{

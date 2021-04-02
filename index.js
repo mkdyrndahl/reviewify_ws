@@ -17,7 +17,7 @@ app.use(fileUpload({
   createParentPath: true
 }));
 
-var  uri = "mongodb+srv://ryantran:trantran2312@cluster0.tynq9.mongodb.net/reviewify?retryWrites=true&w=majority"
+var uri = "mongodb+srv://admin:admin@csis3380-reviewify.r0eqs.mongodb.net/reviewify?retryWrites=true&w=majority"
 
 
 app.use(cors(corsOptions));
