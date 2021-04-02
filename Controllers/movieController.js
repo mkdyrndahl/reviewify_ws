@@ -2,7 +2,7 @@ const Movie = require('../models/movie')
 
 exports.getMovies = async(req, res)=>{
     res.header("Content-Type", "application/json");
-    console.log("Request for movies");
+
     try{
         var movieList = await Movie.find({})
         res.status(200)

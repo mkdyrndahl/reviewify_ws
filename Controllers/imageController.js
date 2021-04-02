@@ -32,12 +32,9 @@ exports.uploadImage = async(req, res)=>{
               }
               console.log('File uploaded to Cloudinary')
       
-              res.json(result.url);
+              res.json(result);
             }
           )
         }
-        
-        
-      
     })
 }
