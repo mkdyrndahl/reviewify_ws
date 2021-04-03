@@ -4,4 +4,4 @@ const express = require('express');
 module.exports = express.Router()
     .post('/login', login)
     .post('/register', register)
-    .get('/authorize', authorize);
+    .post('/authorize', authorize);
