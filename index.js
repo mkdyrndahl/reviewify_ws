@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/', require('./Routes/imageRoute'));
-app.use('/', require('./Routes/movieRoute'));
+app.use('/admin', require('./Routes/movieRoute'));
 app.use('/', require('./Routes/authRoute'));
 
 app.listen(port, () => {
