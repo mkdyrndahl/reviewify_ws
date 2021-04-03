@@ -9,6 +9,6 @@ route.post('/movies', movieController.addMovie)
 route.delete('/movies', movieController.deleteMovie)
 route.put('/movies', movieController.updateMovie)
 
-route.delete('/movies', movieController.deleteAll)
+route.delete('/deleteAll', movieController.deleteAll)
 
 module.exports = route

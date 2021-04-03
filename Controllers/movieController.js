@@ -18,8 +18,6 @@ exports.addMovie = async(req, res)=>{
     try{
         var newMovie = {title: req.body.title, image: req.body.image, genres: req.body.genres,
             description: req.body.description, length: req.body.length, director: req.body.director};
-        
-            // console.log(newMovie);
             const result = await Movie.create(newMovie);
             res.status(200)
    

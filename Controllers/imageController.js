@@ -12,9 +12,7 @@ exports.uploadImage = async(req, res)=>{
         return res.status(400).json({msg: "No file uploaded"});
       }
   
-      const file = req.files.image;
-      // console.log(file);
-      
+      const file = req.files.image
       file.mv(`${__dirname}/../uploads/${file.name}`, err=>{
         if(err){
           console.error(err);
@@ -22,8 +20,7 @@ exports.uploadImage = async(req, res)=>{
         }
         
         if(`../uploads/${file.name}`){
-            const imagePath = path.join(__dirname,'/../uploads',`/${file.name}`);
-            console.log(imagePath);
+            const imagePath = path.join(__dirname,'/../uploads',`/${file.name}`)
       
           cloudinary.uploader.upload(imagePath,
             function(err, result){

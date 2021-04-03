@@ -9,7 +9,8 @@ const app = express();
 const port = 8000;
 
 const corsOptions = {
-    origin: '*'
+    origin: '*',
+    methods: "GET,PUT,POST,DELETE"
 }
 
 // enable files upload
