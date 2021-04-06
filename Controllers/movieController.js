@@ -4,6 +4,7 @@ exports.getMovie = async (req, res) => {
     res.header("Content-Type", "application/json");
     try {
         var movie = await Movie.findById(req.body.id);
+        
         res.status(200);
         res.send(movie);
     } catch {

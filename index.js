@@ -18,9 +18,6 @@ app.use(fileUpload({
   createParentPath: true
 }));
 
-const uri = "mongodb+srv://admin:admin@csis3380-reviewify.r0eqs.mongodb.net/reviewify?retryWrites=true&w=majority"
-
-
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
