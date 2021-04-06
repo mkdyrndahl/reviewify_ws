@@ -1,5 +1,19 @@
 const Movie = require('../models/movie');
 
+exports.getMovie = async (req, res) => {
+    res.header("Content-Type", "application/json");
+    try {
+        var movie = await Movie.findById(req.body.id);
+        res.status(200);
+        res.send(movie);
+    } catch {
+        res.status(500);
+        res.send({
+            message: "Cannot get the movie"
+        });
+    }
+};
+
 exports.getMovies = async (req, res) => {
     res.header("Content-Type", "application/json");
 
@@ -15,12 +29,14 @@ exports.getMovies = async (req, res) => {
 
 exports.addMovie = async (req, res) => {
     res.header("Content-Type", "application/json");
-    try{
-        var newMovie = {title: req.body.title, image: req.body.image, genres: req.body.genres,
-            description: req.body.description, length: req.body.length, director: req.body.director};
-            const result = await Movie.create(newMovie);
-            res.status(200)
-   
+    try {
+        var newMovie = {
+            title: req.body.title, image: req.body.image, genres: req.body.genres,
+            description: req.body.description, length: req.body.length, director: req.body.director
+        };
+        const result = await Movie.create(newMovie);
+        res.status(200)
+
         res.send(result);
     } catch {
         res.status(500);
