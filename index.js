@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.use('/', require('./Routes/imageRoute'));
 app.use('/admin', require('./Routes/movieRoute'));
 app.use('/', require('./Routes/authRoute'));
+app.use('/', require('./Routes/reviewRoute'));
 
 app.listen(port, () => {
     console.log(`Web Service is listening on port ${port}`);
